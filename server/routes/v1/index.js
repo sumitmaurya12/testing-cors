@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-
-const getSignedUrl = (req,res)=>{
+const getSignedUrl = async(req,res)=>{
 try {
     console.log('sign')
     return res.status(201).json({
@@ -21,17 +21,16 @@ try {
 }
 }
 
-const parsePdf = (req,res)=>{
+const parsePdf = async(req,res)=>{
     try {
         console.log('parse pdf')
+        await delay(2 * 60 * 1000);
         // Delay the response for 2 minutes
-        setTimeout(() => {
             return res.status(201).json({
                 success: true,
                 message: "Sending parsed data",
                 error: {}
             });
-        }, 2 * 60 * 1000); 
     } catch (error) {
         console.log("error in extract controller in parsing",error)
         return res.status(500).json({
