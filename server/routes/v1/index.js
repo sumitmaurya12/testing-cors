@@ -24,7 +24,7 @@ try {
 const parsePdf = async(req,res)=>{
     try {
         console.log('parse pdf')
-        await delay(2 * 60 * 1000);
+        await delay(5 * 60 * 1000);
         // Delay the response for 2 minutes
             return res.status(201).json({
                 success: true,
