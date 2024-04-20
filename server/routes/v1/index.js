@@ -20,6 +20,7 @@ try {
     })
 }
 }
+
 const parsePdf = (req,res)=>{
     try {
         console.log('parse pdf')
