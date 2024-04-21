@@ -6,7 +6,7 @@ const corsOptions = {
     credentials: true,
     origin: "*",
   };
-app.use(cors());
+app.use(cors({ optionsSuccessStatus: 200, maxAge: 2 }));
 app.use(function(req,res,next){
   res.setHeader("Access-Control-Allow-Origin","*");
   res.setHeader(
