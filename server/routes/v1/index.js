@@ -4,8 +4,6 @@ const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const getSignedUrl = async(req,res)=>{
 try {
-    console.log('sign')
-    await delay(2 * 60 * 1000);
     return res.status(201).json({
         success: true,
         message: "Sending signed urls",

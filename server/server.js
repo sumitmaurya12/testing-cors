@@ -5,20 +5,21 @@ const appRoutes = require('./routes/index')
 const corsOptions = {
     credentials: true,
     origin: "*",
+    maxAge:1
   };
-app.use(cors({ optionsSuccessStatus: 200, maxAge: 2 }));
-app.use(function(req,res,next){
-  res.setHeader("Access-Control-Allow-Origin","*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET,HEAD,OPTIONS,POST,PUT,DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "Origin,X-Requested-With,Content-Type,Accept,Authorization"
-  );
-  next();
-})
+app.use(cors(corsOptions));
+// app.use(function(req,res,next){
+//   res.setHeader("Access-Control-Allow-Origin","*");
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "GET,HEAD,OPTIONS,POST,PUT,DELETE"
+//   );
+//   res.setHeader(
+//     "Access-Control-Allow-Headers",
+//     "Origin,X-Requested-With,Content-Type,Accept,Authorization"
+//   );
+//   next();
+// })
 app.listen(4000,()=>{
     app.use(express.urlencoded({extended:false}));
     app.use(express.json());
